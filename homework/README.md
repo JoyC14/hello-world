@@ -1,1 +1,10 @@
-
+quicksort
+-
+**問題描述**<br>
+把list裡的數字排序，從小排到大<br>
+**程式架構設計說明**<br>
+從list中選一個數字為支點pivot(流程圖裡選最右邊的數字)<br>
+比pivot小的數字放在pivot的左邊<br>
+比pivot大的數字放在pivot的右邊<br>
+重覆到list中的數字由小排到大後結束<br>
+(pivot會影響快速排序法的效率)
