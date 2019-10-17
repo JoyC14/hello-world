@@ -1,2 +1,3 @@
 學習notes
-stack
+stack&queue
+
