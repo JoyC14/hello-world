@@ -1,1 +1,15 @@
+Merge Sort (合併排序法)
 
+屬於Divide and Conquer演算法，把問題先拆解(divide)成子問題，並在逐一處理子問題後，將子問題的結果合併(conquer)
+
+
+
+
+
+
+
+
+
+
+
+參考網站http://alrightchiu.github.io/SecondRound/comparison-sort-merge-sorthe-bing-pai-xu-fa.html
