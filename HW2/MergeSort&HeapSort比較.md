@@ -1,5 +1,5 @@
 # 時間複雜度
-<img src='img/sort time.jpg' height=200 weight=200>
+<img src='https://github.com/JoyC14/notes/blob/master/img/sort%20time.jpg' height=200 weight=200>
 
 # 速度
 Heap sort比merge sort還要來的快速
