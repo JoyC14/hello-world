@@ -7,6 +7,12 @@
 
 <img src='https://github.com/JoyC14/notes/blob/master/img/MergeSort.png' height=400 weight=400>
 
+把數列一直切半直到剩下一個
+(長度<=1的話就不再切，長度>1繼續切)
+
+Step1 將數列切分，切到只剩下一個元素
+
+
 用MergeSort把數列{5,3,8,6,2,7,1,4}排序成{1,2,3,4,5,6,7,8}
 
 1.Divide把數列拆成兩個小數列
