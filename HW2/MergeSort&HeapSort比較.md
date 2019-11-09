@@ -1,5 +1,5 @@
 # 時間複雜度
-<img src='img/時間複雜度.jpg' height=400 weight=400>
+<img src='img/sort time.jpg' height=400 weight=400>
 
 # 速度
 Heap sort比merge sort還要來的快速
