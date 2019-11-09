@@ -7,3 +7,6 @@
 
 2.Max Heap(最大堆積):父節點的值大於子節點
 樹根(root)一定最所有節點的最大值
+
+
+<img src='https://github.com/JoyC14/notes/blob/master/img/HeapSort.jpg' height=400 weight=400>
