@@ -5,7 +5,7 @@
 
 ## 流程圖
 
-<img src='https://github.com/JoyC14/notes/blob/master/img/MergeSort.png' height=400 weight=400>
+<img src='https://github.com/JoyC14/notes/blob/master/img/MergeSort.jpg' height=400 weight=400>
 
 把數列一直切半直到剩下一個
 (長度<=1的話就不再切，長度>1繼續切)
