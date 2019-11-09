@@ -16,12 +16,12 @@ Step1
 
 亂數產生一組list
 
-sampleList = []
+'sampleList = []
 s = 0
 while s < 9:
      tempRandNum = random.randint(0,100)
      sampleList.append(tempRandNum)
-     s = s + 1
+     s = s + 1'
 
 Step2
 
@@ -44,7 +44,6 @@ Step4
  
  elif leftList[0] < rightList[0]:
          return [leftList[0]] + mergeList(leftList[1:], rightList)
-     
      else: 
          return [rightList[0]] + mergeList(leftList, rightList[1:])
          
