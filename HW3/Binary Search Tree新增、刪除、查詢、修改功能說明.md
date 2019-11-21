@@ -85,6 +85,7 @@ def delete(self, root, target)
 
 來取代被移除的節點位置，並同時將找到的節點之子節點取代自身的位置。
 
+<img src='https://github.com/JoyC14/notes/blob/master/img/MergeSort.jpg' height=400 weight=400>
 
 ## 修改(modify)
 def modify(self, root, target, new_val)
