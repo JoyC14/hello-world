@@ -56,6 +56,19 @@ def search(self, root, target)
 
 和插入操作類似，也是不斷的比較，前提是如果相等就不用比較了，如果不等就按照插入的方式進行比較。
 
+ def find(self, val):
+        return self.findNode(self.root, val)
+
+    def findNode(self, currentNode, val):
+        if(currentNode is None):
+            return False
+        elif(val == currentNode.val):
+            return True
+        elif(val < currentNode.val):
+            return self.findNode(currentNode.leftChild, val)
+        else:
+            return self.findNode(currentNode.rightChild, val)
+
 ## 刪除(delete)
 def delete(self, root, target)
 有三種處理方式
