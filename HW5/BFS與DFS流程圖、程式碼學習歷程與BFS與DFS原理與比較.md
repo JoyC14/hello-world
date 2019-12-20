@@ -44,11 +44,11 @@ BFS也可以運用在算法和爬蟲之中。
 而BFS優先處理自己周圍的資源。所以在爬蟲可以用於遍歷網站，搜尋整個網站的價值信息等等。
 
 
-原文網址：https://kknews.cc/code/3453n3y.html
 
 
 
 參考資料:https://magiclen.org/dfs-bfs/
+https://kknews.cc/code/3453n3y.html
 
 http://alrightchiu.github.io/SecondRound/graph-breadth-first-searchbfsguang-du-you-xian-sou-xun.html
 
