@@ -22,6 +22,8 @@ DFS 就像試探著走迷宮，從起點開始、任意選一點與起點相鄰�
 
 搜尋節點的最深處，一直往尚未訪問過的第一個鄰居節點走去的一種方法。
 
+<img src='https://github.com/JoyC14/notes/blob/master/img/DFS.jpg' height=400 weight=400>
+
 ## BFS DFS比較
 
 *DFS*
@@ -44,7 +46,7 @@ BFS也可以運用在算法和爬蟲之中。
 
 原文網址：https://kknews.cc/code/3453n3y.html
 
-<img src='https://github.com/JoyC14/notes/blob/master/img/DFS.jpg' height=400 weight=400>
+
 
 參考資料:https://magiclen.org/dfs-bfs/
 
