@@ -10,3 +10,7 @@
 <img src='https://github.com/JoyC14/notes/blob/master/img/DFS.jpg' height=400 weight=400>
 
 參考資料:https://magiclen.org/dfs-bfs/
+
+http://alrightchiu.github.io/SecondRound/graph-breadth-first-searchbfsguang-du-you-xian-sou-xun.html
+
+http://alrightchiu.github.io/SecondRound/graph-depth-first-searchdfsshen-du-you-xian-sou-xun.html
