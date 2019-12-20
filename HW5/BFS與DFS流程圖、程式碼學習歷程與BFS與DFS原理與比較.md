@@ -3,8 +3,10 @@
 
 廣度優先搜尋法屬於盲目搜索(uninformed search)是利用佇列(Queue)來處理，通常以迴圈的方式呈現
 
+<img src='' height=400 weight=400>
+
 ## DFS(深度優先搜尋法)
 
-
+<img src='' height=400 weight=400>
 
 參考資料:https://magiclen.org/dfs-bfs/
