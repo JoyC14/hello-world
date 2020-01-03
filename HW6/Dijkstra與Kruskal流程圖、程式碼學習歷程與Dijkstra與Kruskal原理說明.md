@@ -37,8 +37,21 @@ Dijkstra's Algorithm是一種「每次挑選當前最佳選擇(optimal solution)
 
 ## Kruskal
 
+Kruskal's algorithm 是以增加邊的觀念做為出發點。
+
+首先將所有的邊，依照權重的大小排序。再來依序加入權重最小的邊，如果 造成cycle時，則必須捨棄，直到增加了n - 1條邊為止。(假設有 n 個節點)
+
+首先，將每個頂點放入其自身的資料集合中。然後，按照權值的升序來選擇邊。
+
+當選擇每條邊時，判斷定義邊的頂點是否在不同的資料集中。如果是，將此邊插入最小生成樹的集合中，同時，將集合中包含每個頂點的聯合體取出，如果不是，就移動到下一條邊。重複這個過程直到所有的邊都探查過。
+
+用演算法思路描述該過程就是從小到大依次選邊，若選中的邊的兩個頂點都已經加入到樹中，則不選取該邊，只要兩個邊有一個沒有在樹中的就把這條邊加入到樹中，相應的這兩個頂點不管之前是0個或是1個已經在樹中，此時都認為這兩個頂點都已經在樹中，遍歷結束則得到最小生成樹。
+
+<img src='https://github.com/JoyC14/notes/blob/master/img/Kruskal.jpg' height=400 weight=400>
 
 
 參考資料:http://nthucad.cs.nthu.edu.tw/~yyliu/personal/nou/04ds/dijkstra.html
 
 http://alrightchiu.github.io/SecondRound/single-source-shortest-pathdijkstras-algorithm.html
+
+https://www.itread01.com/content/1545066724.html
