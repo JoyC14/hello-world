@@ -1,0 +1,131 @@
+library(ggplot2)
+library(scales)
+library(lubridate)
+options(scipen = 999)
+setwd("C:/Users/user/Desktop/R作業")
+dir()
+
+shilin=read.csv("士林空氣品質監測日值.csv",fileEncoding="UTF-8-BOM")
+View(shilin)
+names(shilin)
+shilin<-shilin[,c("監測日期","溫度.br...AMB_TEMP.br......")]#保留日期及溫度的欄位
+names(shilin)[1]<-"Monitoring_date"
+names(shilin)[2]<-"Temperate"
+View(shilin)
+
+shilin$Timecharacter<-as.character(shilin$Monitoring_date)#日期先轉成文字格式
+shilin$TimeSeries<-strptime(shilin$Timecharacter,"%Y/%m/%d",tz=Sys.timezone())#再將文字格式時間註記
+shilin$TimeSeries<-as.POSIXct(shilin$TimeSeries)#時間註記改成時間序列格式
+shilin$TimeSeries
+
+shilin$Temperate<-as.character(shilin$Temperate)#溫度先轉成文字格式
+shilin$Temperate<-as.numeric(shilin$Temperate)#溫度再轉成數字格式
+str(shilin)#再次檢查資料格式
+
+#篩選特定日期
+shilin2019<-subset(shilin,TimeSeries<"2019-12-31 CST"&TimeSeries>"2019-01-01CST")
+shilin2018<-subset(shilin,TimeSeries<"2019-01-01 CST"&TimeSeries>"2018-01-01CST")
+shilin2017<-subset(shilin,TimeSeries<"2018-01-01 CST"&TimeSeries>"2017-01-01CST")
+shilin2016<-subset(shilin,TimeSeries<"2017-01-01 CST"&TimeSeries>"2016-01-01CST")
+shilin2015<-subset(shilin,TimeSeries<"2016-01-01 CST"&TimeSeries>"2015-01-01CST")
+
+
+shilin2019$Temperate[which.min(shilin2019$Temperate)]#2020年平均最低日均溫是多少
+shilin2019$Timecharacter[which.min(shilin2019$Temperate)]#是在哪個日期
+
+shilin2019$Temperate[which.max(shilin2019$Temperate)]#2020年平均最高日均溫是多少
+shilin2019$Timecharacter[which.max(shilin2019$Temperate)]#是在哪個日期
+
+
+
+
+
+dev.new()
+ggplot()+#x軸日期、y軸溫度
+  geom_line(data=shilin,#data.frame的資料
+            aes(x=TimeSeries,y=Temperate),size=1)+ #x軸必須是時間序列TimeSeries才可以製圖
+
+  annotate("text"#標籤
+           ,shilin2019$TimeSeries[which.min(shilin2019$Temperate)]#自動找出最低溫的日期
+           ,y=shilin2019$Temperate[which.min(shilin2019$Temperate)]#自動找出最低溫的溫度 y軸位置
+           ,label=paste(shilin2019$TimeSeries[which.min(shilin2019$Temperate)]
+                        ,"Lo"
+                        ,shilin2019$Temperate[which.min(shilin2019$Temperate)])
+           ,colour="blue",size=3,vjust=3)+
+  annotate("text"
+           ,shilin2019$TimeSeries[which.max(shilin2019$Temperate)]#自動找出最高溫的日期
+           ,y=shilin2019$Temperate[which.max(shilin2019$Temperate)]#自動找出最高溫的溫度 y軸位置
+           ,label=paste(shilin2019$TimeSeries[which.max(shilin2019$Temperate)]
+                        ,"Hi"
+                        ,shilin2019$Temperate[which.max(shilin2019$Temperate)])
+           ,colour="red",size=3,vjust=-1)+
+  annotate("text"#標籤
+           ,shilin2018$TimeSeries[which.min(shilin2018$Temperate)]#自動找出最低溫的日期
+           ,y=shilin2018$Temperate[which.min(shilin2018$Temperate)]#自動找出最低溫的溫度 y軸位置
+           ,label=paste(shilin2018$TimeSeries[which.min(shilin2018$Temperate)]
+                        ,"Lo"
+                        ,shilin2018$Temperate[which.min(shilin2018$Temperate)])
+           ,colour="blue",size=3,vjust=3)+
+  annotate("text"
+           ,shilin2018$TimeSeries[which.max(shilin2018$Temperate)]#自動找出最高溫的日期
+           ,y=shilin2018$Temperate[which.max(shilin2018$Temperate)]#自動找出最高溫的溫度 y軸位置
+           ,label=paste(shilin2018$TimeSeries[which.max(shilin2018$Temperate)]
+                        ,"Hi"
+                        ,shilin2018$Temperate[which.max(shilin2018$Temperate)])
+           ,colour="red",size=3,vjust=-2)+
+  annotate("text"#標籤
+           ,shilin2017$TimeSeries[which.min(shilin2017$Temperate)]#自動找出最低溫的日期
+           ,y=shilin2017$Temperate[which.min(shilin2017$Temperate)]#自動找出最低溫的溫度 y軸位置
+           ,label=paste(shilin2017$TimeSeries[which.min(shilin2017$Temperate)]
+                        ,"Lo"
+                        ,shilin2017$Temperate[which.min(shilin2017$Temperate)])
+           ,colour="blue",size=3,vjust=3)+
+  annotate("text"
+           ,shilin2017$TimeSeries[which.max(shilin2017$Temperate)]#自動找出最高溫的日期
+           ,y=shilin2017$Temperate[which.max(shilin2017$Temperate)]#自動找出最高溫的溫度 y軸位置
+           ,label=paste(shilin2017$TimeSeries[which.max(shilin2017$Temperate)]
+                        ,"Hi"
+                        ,shilin2017$Temperate[which.max(shilin2017$Temperate)])
+           ,colour="red",size=3,vjust=-2)+
+  annotate("text"#標籤
+           ,shilin2016$TimeSeries[which.min(shilin2016$Temperate)]#自動找出最低溫的日期
+           ,y=shilin2016$Temperate[which.min(shilin2016$Temperate)]#自動找出最低溫的溫度 y軸位置
+           ,label=paste(shilin2016$TimeSeries[which.min(shilin2016$Temperate)]
+                        ,"Lo"
+                        ,shilin2016$Temperate[which.min(shilin2016$Temperate)])
+           ,colour="blue",size=3,vjust=1)+
+  annotate("text"
+           ,shilin2016$TimeSeries[which.max(shilin2016$Temperate)]#自動找出最高溫的日期
+           ,y=shilin2016$Temperate[which.max(shilin2016$Temperate)]#自動找出最高溫的溫度 y軸位置
+           ,label=paste(shilin2016$TimeSeries[which.max(shilin2016$Temperate)]
+                        ,"Hi"
+                        ,shilin2016$Temperate[which.max(shilin2016$Temperate)])
+           ,colour="red",size=3,vjust=-2)+
+  annotate("text"#標籤
+           ,shilin2015$TimeSeries[which.min(shilin2015$Temperate)]#自動找出最低溫的日期
+           ,y=shilin2015$Temperate[which.min(shilin2015$Temperate)]#自動找出最低溫的溫度 y軸位置
+           ,label=paste(shilin2015$TimeSeries[which.min(shilin2015$Temperate)]
+                        ,"Lo"
+                        ,shilin2015$Temperate[which.min(shilin2015$Temperate)])
+           ,colour="blue",size=3,vjust=3)+
+  annotate("text"
+           ,shilin2015$TimeSeries[which.max(shilin2015$Temperate)]#自動找出最高溫的日期
+           ,y=shilin2015$Temperate[which.max(shilin2015$Temperate)]#自動找出最高溫的溫度 y軸位置
+           ,label=paste(shilin2015$TimeSeries[which.max(shilin2015$Temperate)]
+                        ,"Hi"
+                        ,shilin2015$Temperate[which.max(shilin2015$Temperate)])
+           ,colour="red",size=3,vjust=-2)+
+ 
+  ggtitle(paste("2015-2019 士林日均溫變化圖"))+
+  theme(
+    plot.title=element_text(face="italic",colour = "purple",hjust=0.5,size=20),
+    axis.title = element_blank(),
+    axis.ticks.y=element_blank(),
+    panel.grid.major.y = element_line(color="#FFB666",linetype = 5),
+    panel.background = element_rect(fill="white"),#背景白色
+    axis.text=element_text(colour = "black",size = 10,face="italic"),#x軸及y軸刻度改成斜體
+    axis.line.x=element_line()#x軸畫直線
+  )
+
+
+
