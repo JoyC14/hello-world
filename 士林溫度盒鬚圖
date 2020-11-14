@@ -54,3 +54,5 @@ boxplot(INDEX_sub,
         main=paste(
                    "2016-2020 2月份 士林溫度"),
         col=rainbow(23),outline=TRUE)
+
+<img src='https://github.com/JoyC14/notes/blob/master/img/BFS.jpg' height=400 weight=400>
